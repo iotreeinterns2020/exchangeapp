@@ -20,15 +20,21 @@ login(e){
         console.log(u)
     }).catch((err)=>{
         console.log(err);
+        alert(` PLEASE SIGNUP FIRST `)
     })
+
+    
 }
 signup(e){
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
         console.log(u)
+        alert(` Registered Successfully  !!!!`)
     }).catch((err)=>{
         console.log(err);
+        alert(` you already have an account with this email  !!!!`)
     })
+
 }
 handleChange(e){
     this.setState({
