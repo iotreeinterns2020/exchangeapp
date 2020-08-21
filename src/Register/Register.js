@@ -108,7 +108,7 @@ const logout=()=>{
 
       
     
-      alert(`${name} ${family}  Registered Successfully  !!!!`)
+      alert(` CONGRATULATION  ${name} ${family} , YOUR EXCHANGE HAS BEEN DONE `)
      
       
        
