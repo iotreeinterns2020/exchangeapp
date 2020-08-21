@@ -9,7 +9,7 @@ import Register from './Register/Register'
 class App extends Component {
 
   constructor(props){
-    super(props);
+    super(props); 
     this.state = {
       user : null
     }
@@ -26,7 +26,7 @@ class App extends Component {
         this.setState({user})
       }
 
-      else{
+     else{
         this.setState({user : null})
       }
     })
@@ -36,6 +36,7 @@ class App extends Component {
     return (
       <div className= "App" >
         {this.state.user ? (<Register/>) : (<Login/>)}
+        
 
       </div>
     )
