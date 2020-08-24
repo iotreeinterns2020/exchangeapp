@@ -12,9 +12,13 @@ class App extends Component {
     super(props); 
     this.state = {
       user : null
-    }
+      
+    };
+
+   this.authListener = this.authListener.bind(this);
   }
 
+  
   componentDidMount()
   {
     this.authListener();
@@ -23,15 +27,19 @@ class App extends Component {
   authListener(){
     fire.auth().onAuthStateChanged((user)=>{
       if(user){
+
         this.setState({user})
       }
+    
 
      else{
-        this.setState({user : null})
+       this.setState({user : null})
+          
       }
     })
   }
 
+ 
   render() {
     return (
       <div className= "App" >
