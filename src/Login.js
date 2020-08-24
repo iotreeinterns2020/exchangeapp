@@ -2,6 +2,9 @@ import React , { Component } from "react";
 import fire from "./config/fire";
 
 
+
+
+
 class Login extends Component{
 constructor(props)
 {
@@ -20,9 +23,16 @@ login(e){
         console.log(u)
     }).catch((err)=>{
         console.log(err);
-        alert(` PLEASE SIGNUP FIRST `)
+        alert(err)
+       /* alert(` PLEASE SIGNUP FIRST `) */
+
+       this.setState({
+       /* email : "",*/
+        password : ""
     })
 
+    })
+  
     
 }
 signup(e){
@@ -32,9 +42,15 @@ signup(e){
         alert(` Registered Successfully  !!!!`)
     }).catch((err)=>{
         console.log(err);
-        alert(` you already have an account with this email  !!!!`)
+        alert(err)
+        
+        this.setState({
+             email : "",
+             password : ""
+         })
     })
 
+    
 }
 handleChange(e){
     this.setState({
@@ -56,6 +72,7 @@ render()
                 placeholder="enter email address"
                 onChange={this.handleChange}
                 value={this.state.email}
+                
                 
                 />
                 <input
