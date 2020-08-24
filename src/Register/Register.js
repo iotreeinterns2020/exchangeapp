@@ -3,19 +3,43 @@ import './register.css'
 import Creatable from 'react-select/creatable'
 import firebase from 'firebase';
 
+
+
+
 const sell = [
-  { label: 'Tomato', value: 'Tomato' },
-  { label: 'Cucumber', value: 'Cucumber' },
-  { label: 'Lettuce', value: 'Lettuce' },
-  { label: 'Carrots', value: 'Carrots' },
-  { label: 'Green pepper', value: 'Green pepper'}
+  { label: 'Arab', value: 'Arab' },
+  { label: 'Francais', value: 'Francais' },
+  { label: 'English', value: 'English' },
+  { label: 'Maths', value: 'Maths' },
+  { label: 'Biologie', value: 'Biologie'},
+  { label: 'Geographie', value: 'Geographie'}
 ]
 
 const buy = [
-  { label: 'Strawberry', value: 'Strawberry' },
-  { label: 'Banana', value: 'Banana' },
-  { label: 'Pineapple', value: 'Pineapple' },
-  { label: 'Kiwi', value: 'Kiwi' }
+  { label: 'Chimie', value: 'Chimie' },
+  { label: 'Histoire', value: 'Histoire' },
+  { label: 'Philo', value: 'Philo' },
+  { label: 'Eco', value: 'Eco' }
+]
+
+const Classs = [
+  { label: 'EB1', value: 'EB1' },
+  { label: 'EB2', value: 'EB2' },
+  { label: 'EB3', value: 'EB3' },
+  { label: 'EB4', value: 'EB4' },
+  { label: 'EB5', value: 'EB5' },
+  { label: 'EB6', value: 'EB6' },
+  { label: 'EB7', value: 'EB7' },
+  { label: 'EB8', value: 'EB8' },
+  { label: 'EB9', value: 'EB9' },
+  { label: 'Seconde', value: 'Seconde' },
+  { label: 'Bac-Scientific', value: 'Bac-Scientific' },
+  { label: 'Bac-Literaire', value: 'Bac-Literaire' },
+  { label: 'SG', value: 'SG' },
+  { label: 'SV', value: 'SV' },
+  { label: 'SE', value: 'SE' },
+  { label: 'LH', value: 'LH' },
+
 ]
 
 const customStyles = {
@@ -29,12 +53,15 @@ const customStyles = {
 
 const Register = props => {
   const [name, setName] = useState('')
-  const [family, setFamily] = useState('')
   const [number, setNumber] = useState('')
+  const [address, setAddress] = useState('')
+  const [school, setSchool] = useState('')
   const [SellValue, setSellValue] = useState('')
   const [BuyValue, setBuyValue] = useState('')
+  const [ClasssValue, setClass] = useState('')
   const [elle,setElement1] = useState([]);
   const [il,setElement2] = useState([]);
+  
   
 
 
@@ -55,10 +82,7 @@ const Register = props => {
     }
   }
 
-const logout=()=>{
-  firebase.auth().signOut();
-  
-}
+
   
   const handleChangeBuy = (field, value) => {
     switch (field) {
@@ -75,46 +99,68 @@ const logout=()=>{
     }
   }
 
-  
+  const handleClass = (field, value) => {
+    switch (field) {
+      case 'Classss':
+        setClass(value)
+        const c = value;
+        
+        
+        /*console.log(elle);*/
+        break
+
+      default:
+        break
+    }
+  }
 
 
  const handleSubmit = (event) => {
 
     var name_id = document.getElementById("Name").value;
-    var family = document.getElementById("Family").value;
     var cell = document.getElementById("Number").value;
-    
+    var addresss = document.getElementById("Addressss").value;
+    var schooll = document.getElementById("schoolll").value;
+   /* var classsss = document.getElementById("Classss").value;*/
+    var h = ClasssValue.value;
     
   
     
-    var userID = firebase.auth().currentUser.uid;
+  
+    
+   /* var userID = firebase.auth().currentUser.uid;*/
 
-    if(name_id !== "" && family !== "" && cell !== "" && elle.length > 0 && il.length > 0)
+    if(name_id !== "" && addresss !== "" && schooll !== "" && cell !== ""&& h !== "" && elle.length > 0 && il.length > 0 )
     {
 
-      firebase.database().ref('users').child(userID).child(name_id).set({
+      firebase.database().ref('users').child('numbers').child(cell).set({
           
           
           name: name_id,
-          family: family,
           number: cell,
-          toSell : elle,
-          toBuy : il,
+          address : addresss,
+          school : schooll,
+          Class : h,
+          to_Sell : elle,
+          to_Buy : il,
 
         
           });
 
       
     
-      alert(` CONGRATULATION  ${name} ${family} , YOUR EXCHANGE HAS BEEN DONE `)
+      alert(` CONGRATULATION  ${name}  , YOUR EXCHANGE HAS BEEN DONE `)
 
       setName("")
-      setFamily("")
       setNumber("")
+      setAddress("")
+      setSchool("")
+      setClass("")
       setSellValue("")
       setBuyValue("")
       setElement1([])
       setElement2([])
+      
      
     }
 
@@ -125,23 +171,43 @@ const logout=()=>{
        
     }
   
-setTimeout(logout,1000*300)
+
 
   return (
     <div className='container'>
-      <h3>Add User</h3>
+      <h3>DEKESH KTEBAK !!!</h3>
       <div className='register-form'>
         <div className='input'>
-          <label>Name</label>
-          <input type='text'id="Name" required="required" value={name} onChange={(event) => setName(event.target.value)} placeholder="Name..." />
+          <label>Full Name</label>
+          <input type='text'id="Name" required="required" value={name} onChange={(event) => setName(event.target.value)} placeholder="Full Name..." />
         </div>
-        <div className='input'>
-          <label>Family</label>
-          <input type='text' id="Family" required="required" value={family} onChange={(event) => setFamily(event.target.value)} placeholder="Family..."/>
-        </div>
+        
         <div className='input'>
           <label>phone number</label>
           <input type='text' value={number} id="Number" required="required" onChange={(event) => setNumber(event.target.value)} placeholder = "Phone number..."/>
+        </div>
+
+        <div className='input'>
+          <label>Full address</label>
+          <input type='text' value={address} id="Addressss" required="required" onChange={(event) => setAddress(event.target.value)} placeholder = "ex: jbeil/main road/street 53/building 22..."/>
+        </div>
+
+        <div className='input'>
+          <label>School name</label>
+          <input type='text' value={school} id="schoolll" required="required" onChange={(event) => setSchool(event.target.value)} placeholder = "School..."/>
+        </div>
+
+        <div className='input'>
+          <label>Class</label>
+          <Creatable
+          
+            isClearable
+            onChange={(value) => handleClass('Classss', value)}
+            options={Classs}          
+            value={ClasssValue} 
+            styles={customStyles}
+            
+          />
         </div>
 
         <div className='input'>
@@ -172,7 +238,7 @@ setTimeout(logout,1000*300)
 
         <div className='buttons'>
           <button onClick={()=> handleSubmit()}>Submit</button>
-          <button onClick={()=>logout()}>Logout</button>
+          
         </div>
       </div>
     </div>
