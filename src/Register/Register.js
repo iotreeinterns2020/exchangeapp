@@ -57,6 +57,7 @@ const Register = props => {
 
 const logout=()=>{
   firebase.auth().signOut();
+  
 }
   
   const handleChangeBuy = (field, value) => {
@@ -88,6 +89,9 @@ const logout=()=>{
     
     var userID = firebase.auth().currentUser.uid;
 
+    if(name_id !== "" && family !== "" && cell !== "" && elle.length > 0 && il.length > 0)
+    {
+
       firebase.database().ref('users').child(userID).child(name_id).set({
           
           
@@ -98,23 +102,30 @@ const logout=()=>{
           toBuy : il,
 
         
-         
-          
-          
-          
-          
-          
           });
 
       
     
       alert(` CONGRATULATION  ${name} ${family} , YOUR EXCHANGE HAS BEEN DONE `)
+
+      setName("")
+      setFamily("")
+      setNumber("")
+      setSellValue("")
+      setBuyValue("")
+      setElement1([])
+      setElement2([])
      
-      
+    }
+
+    else{
+      alert(`plz fill all the fields`)
+    }
+        
        
     }
   
-
+setTimeout(logout,1000*300)
 
   return (
     <div className='container'>
