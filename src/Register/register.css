@@ -1,24 +1,35 @@
+.mainContainer {
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
 .container{
-    width: 500px;
-    margin-left: 100px;
-    border-radius: 0px;
+    width: 425px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: 45%;
+    border-radius: 4px;
     padding:  10px;
-    background-color: rgba(4, 28, 247, 0.5);
-    margin-top: 0px;
+    align-self: center;
 }
 
 .container label{
     color: black;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-top: 0px;
+    font-weight: bold;
 }
 
 .container h3{
     color:rgb(0, 0, 0);
-    font-size: 1.6rem;
-    margin-top: 0px;
-    margin-left: 30px;
+    font-size: 2.6rem;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 35%;
 }
+
 .container form{
     width: 400px;
     border-radius: 20px;
@@ -33,12 +44,12 @@
 .container .input label{
     margin-bottom: 10px;
 }
+
 .container input[type=text]{
-    height: 48px;
     border-radius: 5px;
     border: black;
-    padding: 5px 10px;
-    font-size: 1rem;
+    padding: 10px 10px;
+    font-size: 1.2rem;
 }
 
 .container .buttons{
@@ -46,20 +57,51 @@
 }
 
 .container .buttons button{
-    width: 80%;
+    width: 100%;
     padding: 15px 10px;
-    background-color: rgb(79, 160, 59);
-    border: 1px solid rgb(31, 71, 34);
+    background-color: darkgray;
+    border: 2px solid darkgray;
     margin:20px 0;
-    color: rgb(245, 255, 244);
-    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    font-size: 1.8rem;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .container .buttons button:hover{
-    background-color: rgb(54, 153, 30);
+    background-color: rgb(110, 106, 106);
 }
 
+.css-12jo7m5 {
+    font-size: 1.2rem !important;
+    padding:0px !important;
+}
 
-/* body{
-    background-color: rgb(12, 206, 196);
-}*/
+.css-1leezlx-MenuList {
+    font-size: 1.2rem !important;
+}
+
+.css-g1d714-ValueContainer {
+    padding: 10px 10px !important;
+}
+
+.css-nbylj9-option {
+    color: black !important;
+    border-bottom: 1px dotted gray !important;
+}
+
+.css-1579d96-option {
+    color: black !important;
+    border-bottom: 1px dotted gray !important;
+}
+
+.css-yk16xz-control:hover {
+    border-color: black !important;
+    box-shadow: 0 0 0 1px transparent !important;
+}
+
+.css-1pahdxg-control:hover{
+    border-color: black !important;
+    box-shadow: 0 0 0 1px transparent !important;
+}
