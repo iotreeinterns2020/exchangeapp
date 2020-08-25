@@ -4,7 +4,9 @@ import Creatable from 'react-select/creatable'
 import firebase from 'firebase';
 
 
+
 const sell = [
+  { label: 'GS', value: 'GS' },
   { label: 'EB1', value: 'EB1' },
   { label: 'EB2', value: 'EB2' },
   { label: 'EB3', value: 'EB3' },
@@ -24,6 +26,7 @@ const sell = [
 ]
 
 const buy = [
+  { label: 'GS', value: 'GS' },
   { label: 'EB1', value: 'EB1' },
   { label: 'EB2', value: 'EB2' },
   { label: 'EB3', value: 'EB3' },
@@ -110,9 +113,6 @@ const Register = props => {
    /* var classsss = document.getElementById("Classss").value;*/
    /* var h = ClasssValue.value;*/
     
-  
-    
-  
     
    /* var userID = firebase.auth().currentUser.uid;*/
 
@@ -134,7 +134,7 @@ const Register = props => {
 
       
     
-      alert(` CONGRATULATION  ${name}  , YOUR EXCHANGE HAS BEEN DONE `)
+      alert(` Congratulations  ${name}  , Your Exchange Has Been Done `)
 
       setName("")
       setNumber("")
@@ -149,7 +149,7 @@ const Register = props => {
     }
 
     else{
-      alert(`plz fill all the fields`)
+      alert(`Please fill all the fields!`)
     }
         
        
@@ -158,8 +158,9 @@ const Register = props => {
 
 
   return (
+    <div className='mainContainer'>
     <div className='container'>
-      <h3>داكش_كتبك#</h3>
+      <h3  >داكش_كتبك #</h3>
       <div className='register-form'>
         <div className='input'>
           <label>Full Name</label>
@@ -167,22 +168,26 @@ const Register = props => {
         </div>
         
         <div className='input'>
-          <label>phone number</label>
-          <input type='text' value={number} id="Number" required="required" onChange={(event) => setNumber(event.target.value)} placeholder = "Phone number..."/>
+          <label>Mobile number</label>
+          <input type='text' value={number} id="Number" required="required" onChange={(event) => setNumber(event.target.value)} placeholder = "Mobile number..."/>
         </div>
 
         <div className='input'>
-          <label>Full address</label>
-          <input type='text' value={address} id="Addressss" required="required" onChange={(event) => setAddress(event.target.value)} placeholder = "ex: jbeil/main road/street 53/building 22..."/>
+          <label>Location</label>
+          <input type='text' value={address} id="Addressss" required="required" onChange={(event) => setAddress(event.target.value)} placeholder = "ex: Jbeil Main road, Street 53, Building 22..."/>
         </div>
 
         <div className='input'>
           <label>School name</label>
-          <input type='text' value={school} id="schoolll" required="required" onChange={(event) => setSchool(event.target.value)} placeholder = "School..."/>
-        </div>
+          <input type='text' value={school} id="schoolll" required="required" onChange={(event) => setSchool(event.target.value)} placeholder = "School name..."/>
+        </div></div>
 
-        <div className='input'>
-          <label>books to sell by exchange</label>
+        <br></br>
+        <br></br>
+        <br></br>
+
+          <div className='input'>
+          <label>Books to sell (select the class) </label>
           <Creatable
         
             isClearable
@@ -197,10 +202,8 @@ const Register = props => {
 
         </div>
 
-       
-
         <div className='input'>
-          <label>books to buy by exchange</label>
+          <label>Books to buy (select the class)</label>
           <Creatable 
             isClearable
             isMulti
@@ -216,9 +219,8 @@ const Register = props => {
           <button onClick={()=> handleSubmit()}>Submit</button>
           
         </div>
-      </div>
     </div>
-
+    </div>
   )
 }
 
